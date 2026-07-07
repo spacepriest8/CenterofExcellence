@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Center of Excellence Portal</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        renGreen: '#00A826',  /* Renaissance Brand Green */
+                        renOrange: '#FF6A00', /* Renaissance Brand Orange/Rust */
+                        bgLight: '#F3F4F6'    /* Light background slate matching the portal */
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Slanted banner: left edge diagonally sliced with a thin highlight */
+        .slanted {
+            position: relative;
+            -webkit-clip-path: polygon(12% 0, 100% 0, 100% 100%, 0% 100%);
+            clip-path: polygon(12% 0, 100% 0, 100% 100%, 0% 100%);
+            overflow: hidden;
+        }
+
+        .slanted::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 11%; /* sits along the slanted cut */
+            width: 6px; /* thickness of the slice line */
+            background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.6));
+            transform: skewX(-18deg);
+            pointer-events: none;
+            mix-blend-mode: overlay;
+        }
+
+        /* Fallback for browsers without clip-path support */
+        @supports not (clip-path: polygon(0 0)) {
+            .slanted { transform: skewX(-6deg); transform-origin: top left; }
+        }
+    </style>
+</head>
+<body class="bg-bgLight text-slate-800 antialiased font-sans">
+
+    <!-- Top Branding Bar -->
+    <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-6 h-28 flex items-center justify-between">
+            <div class="flex items-center space-x-5">
+                <!-- Full logo image3 (expanded) -->
+                <img src="./image3.png" alt="Center of Excellence Logo" class="h-20 md:h-24 object-contain max-w-[260px]">
+                <span class="font-bold tracking-tight text-slate-900 text-lg md:text-2xl">Center of Excellence Portal</span>
+            </div>
+            <nav class="flex space-x-6 text-xs font-semibold uppercase tracking-wider text-slate-600">
+                <a href="#portal" class="hover:text-renGreen transition-colors">Portal Arms</a>
+                <a href="#leadership" class="hover:text-renGreen transition-colors">Our Leadership</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Split Section (Mirrors layout of image_0cd9d3.jpg) -->
+    <section class="relative bg-white overflow-hidden border-b border-gray-200">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-stretch min-h-[450px]">
+            <!-- Left Info Panel -->
+            <div class="w-full md:w-3/5 p-8 md:p-16 flex flex-col justify-center bg-gradient-to-br from-slate-50 to-white">
+                <h1 class="text-3xl md:text-5xl font-black text-slate-900 tracking-tight mb-4">
+                    Welcome to the Center of Excellence
+                </h1>
+                <p class="text-sm md:text-base text-slate-600 leading-relaxed max-w-xl">
+                    The central digital portal driving operational intelligence, monitoring frameworks, and asset verification frameworks across our core energy divisions. Making key telemetry data, engineering activities, and compliance records simpler to access.
+                </p>
+            </div>
+            
+            <!-- Right Banner Image Panel (Angular Split) -->
+            <div class="w-full md:w-2/5 relative min-h-[250px] md:min-h-full bg-slate-200 slanted">
+                <!-- Replace src with your industry/rig asset image path -->
+                <img src="./Gemini_Generated_Image_2r5pft2r5pft2r5p.png" 
+                     alt="Industrial Asset Banner" 
+                     class="w-full h-full object-cover">
+                <!-- Sleek Top Branding Accent Ribbon -->
+                <div class="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-renGreen to-renOrange"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The 3 Core Portal Arms (One Portal To Find Them All Style) -->
+    <section id="portal" class="py-16 max-w-7xl mx-auto px-6 text-center">
+        <h2 class="text-2xl font-bold text-slate-900 mb-2">One portal to find them all</h2>
+        <div class="w-12 h-1 bg-renGreen mx-auto mb-10"></div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <!-- ORS Box -->
+            <div class="bg-white border border-gray-200 p-8 rounded-sm shadow-sm flex flex-col items-center group hover:border-renGreen transition-all">
+                <div class="w-12 h-12 rounded-full bg-renGreen/10 flex items-center justify-center text-renGreen font-bold text-lg mb-4">ORS</div>
+                <div class="bg-amber-400 text-xs font-bold px-4 py-1 uppercase rounded-sm mb-3 text-slate-900 tracking-wider">ORS Module</div>
+                <p class="text-xs text-slate-500 leading-relaxed">Operational Resource Strategy application logs, asset deployment tracking, and structural field balancing assets.</p>
+            </div>
+
+            <!-- PMF Box -->
+            <div class="bg-white border border-gray-200 p-8 rounded-sm shadow-sm flex flex-col items-center group hover:border-renGreen transition-all">
+                <div class="w-12 h-12 rounded-full bg-renGreen/10 flex items-center justify-center text-renGreen font-bold text-lg mb-4">PMF</div>
+                <div class="bg-amber-400 text-xs font-bold px-4 py-1 uppercase rounded-sm mb-3 text-slate-900 tracking-wider">PMF Module</div>
+                <p class="text-xs text-slate-500 leading-relaxed">Process Monitoring Framework logs, live data tracking, safety critical metrics, and error telemetry indices.</p>
+            </div>
+
+            <!-- DCARP Box -->
+            <div class="bg-white border border-gray-200 p-8 rounded-sm shadow-sm flex flex-col items-center group hover:border-renGreen transition-all">
+                <div class="w-12 h-12 rounded-full bg-renGreen/10 flex items-center justify-center text-renGreen font-bold text-lg mb-4">DCARP</div>
+                <div class="bg-amber-400 text-xs font-bold px-4 py-1 uppercase rounded-sm mb-3 text-slate-900 tracking-wider">DCARP Module</div>
+                <p class="text-xs text-slate-500 leading-relaxed">Digital Control & Asset Reconciliation Platform tracking models for validating on-site hardware alignment.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5 Leaders Spot Section (Mirrors corporate presentation cards style) -->
+    <section id="leadership" class="bg-white border-t border-gray-200 py-16 relative overflow-hidden">
+        <!-- Right side slanted banner (hidden on small screens) -->
+        <div class="hidden lg:block absolute top-0 right-0 w-2/5 h-full leaders-banner slanted">
+            <img src="./Gemini_Generated_Image_2r5pft2r5pft2r5p.png" alt="Leaders Side Banner" class="w-full h-full object-cover">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10 lg:pr-[40%]">
+            <div class="text-center mb-12">
+                <h2 class="text-2xl font-bold text-slate-900">CoE Leadership Team</h2>
+                <p class="text-xs text-slate-500 mt-1">Driving innovation, data governance, and core technical support frameworks</p>
+                <div class="w-12 h-1 bg-renOrange mx-auto mt-4"></div>
+            </div>
+
+            <!-- 5 Grid Columns Setup for Leaders -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 max-w-6xl mx-auto">
+                
+                <!-- Leader 1 -->
+                <div class="bg-bgLight border border-gray-200 p-4 rounded-sm text-center flex flex-col items-center">
+                    <div class="w-24 h-24 bg-slate-300 rounded-full mb-3 overflow-hidden border-2 border-white shadow-sm">
+                        <!-- Place real profile image paths inside src attribute -->
+                        <img src="" alt="Leader" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="font-bold text-sm text-slate-900 line-clamp-1">Leader Name</h4>
+                    <p class="text-[11px] text-renGreen font-medium uppercase tracking-wider mt-1">Director, CoE</p>
+                </div>
+
+                <!-- Leader 2 -->
+                <div class="bg-bgLight border border-gray-200 p-4 rounded-sm text-center flex flex-col items-center">
+                    <div class="w-24 h-24 bg-slate-300 rounded-full mb-3 overflow-hidden border-2 border-white shadow-sm">
+                        <img src="" alt="Leader" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="font-bold text-sm text-slate-900 line-clamp-1">Leader Name</h4>
+                    <p class="text-[11px] text-renGreen font-medium uppercase tracking-wider mt-1">Head, ORS Division</p>
+                </div>
+
+                <!-- Leader 3 -->
+                <div class="bg-bgLight border border-gray-200 p-4 rounded-sm text-center flex flex-col items-center">
+                    <div class="w-24 h-24 bg-slate-300 rounded-full mb-3 overflow-hidden border-2 border-white shadow-sm">
+                        <img src="" alt="Leader" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="font-bold text-sm text-slate-900 line-clamp-1">Leader Name</h4>
+                    <p class="text-[11px] text-renGreen font-medium uppercase tracking-wider mt-1">Head, PMF Systems</p>
+                </div>
+
+                <!-- Leader 4 -->
+                <div class="bg-bgLight border border-gray-200 p-4 rounded-sm text-center flex flex-col items-center">
+                    <div class="w-24 h-24 bg-slate-300 rounded-full mb-3 overflow-hidden border-2 border-white shadow-sm">
+                        <img src="" alt="Leader" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="font-bold text-sm text-slate-900 line-clamp-1">Leader Name</h4>
+                    <p class="text-[11px] text-renGreen font-medium uppercase tracking-wider mt-1">Head, DCARP Framework</p>
+                </div>
+
+                <!-- Leader 5 -->
+                <div class="bg-bgLight border border-gray-200 p-4 rounded-sm text-center flex flex-col items-center col-span-2 sm:col-span-1 mx-auto sm:mx-0 w-1/2 sm:w-full">
+                    <div class="w-24 h-24 bg-slate-300 rounded-full mb-3 overflow-hidden border-2 border-white shadow-sm">
+                        <img src="" alt="Leader" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="font-bold text-sm text-slate-900 line-clamp-1">Leader Name</h4>
+                    <p class="text-[11px] text-renGreen font-medium uppercase tracking-wider mt-1">Technical Lead</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Simple Footer Accent -->
+    <footer class="bg-slate-900 text-slate-400 text-xs py-8 text-center border-t-4 border-gradient-to-r border-renOrange">
+        <p>&copy; 2026 Center of Excellence. Integrated Infrastructure Portal Network.</p>
+    </footer>
+
+</body>
+</html>

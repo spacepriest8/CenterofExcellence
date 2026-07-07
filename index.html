@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Center of Excellence | Renaissance Africa Energy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --rc-forest:#0B3D2E;
+    --rc-forest-deep:#082A20;
+    --rc-emerald:#17694A;
+    --rc-gold:#C89B3C;
+    --rc-gold-soft:#E7CD8F;
+    --page-bg:#EEF1F0;
+    --panel-white:#FFFFFF;
+    --rc-ink:#172018;
+    --rc-line: rgba(11,61,46,0.12);
+    --shadow: 0 16px 40px -18px rgba(11,61,46,0.28);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--page-bg);
+    color:var(--rc-ink);
+    font-family:'Work Sans', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Fraunces', serif;
+    letter-spacing:-0.01em;
+    color:var(--rc-forest-deep);
+    margin:0;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--rc-emerald);
+    font-weight:500;
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 28px;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important;}
+  }
+
+  /* ---------- Side banner (Renaissance leaf) ---------- */
+  .side-banner{
+    position:fixed;
+    top:0; left:0;
+    width:64px; height:100vh;
+    z-index:5;
+    overflow:hidden;
+    background:var(--panel-white);
+    box-shadow:2px 0 12px -6px rgba(11,61,46,0.18);
+  }
+  .side-banner img{
+    width:100%; height:100%;
+    object-fit:cover;
+    object-position:left center;
+  }
+  body{padding-left:64px;}
+  @media (max-width:900px){
+    .side-banner{display:none;}
+    body{padding-left:0;}
+  }
+
+  /* ---------- Section backgrounds using the side banner image ---------- */
+  .side-bg{
+    background-image: url('./image.png');
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 64px 100%; /* match the fixed banner width and stretch vertically */
+    /* keep original section background color visible to the right */
+  }
+  @media (max-width:900px){
+    .side-bg{background-image:none;} /* remove on small screens */
+  }
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:var(--panel-white);
+    border-bottom:1px solid var(--rc-line);
+  }
+  .header-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 28px;
+    max-width:1160px; margin:0 auto;
+  }
+  .brand-logo{
+    display:flex; align-items:center; gap:14px;
+  }
+  .brand-logo img{
+    height:76px; width:auto;
+  }
+  .brand-logo .fallback-word{
+    font-family:'Fraunces', serif; font-weight:600; font-size:1.15rem;
+    color:var(--rc-forest-deep); display:none;
+  }
+  .coe-tag{
+    border-left:1px solid var(--rc-line);
+    padding-left:14px; margin-left:2px;
+  }
+  .coe-tag .line1{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.64rem; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--rc-emerald);
+  }
+  .coe-tag .line2{
+    font-family:'Fraunces', serif; font-size:1.02rem; color:var(--rc-forest-deep); font-weight:500;
+  }
+  nav{display:flex; align-items:center; gap:26px;}
+  nav a{
+    color:#3f4a43;
+    text-decoration:none;
+    font-size:0.9rem;
+    font-weight:500;
+    transition:color .2s ease;
+  }
+  nav a:hover, nav a:focus-visible{color:var(--rc-emerald);}
+  nav a.btn-leadership{
+    background:var(--rc-forest-deep);
+    color:var(--panel-white) !important;
+    padding:9px 18px;
+    border-radius:20px;
+    font-weight:600;
+    font-size:0.86rem;
+  }
+  nav a.btn-leadership:hover{background:var(--rc-emerald);}
+  .nav-toggle{display:none; background:none; border:0; color:var(--rc-forest-deep); font-size:1.4rem; cursor:pointer;}
+
+  @media (max-width:760px){
+    nav{
+      position:absolute; top:100%; left:0; right:0;
+      background:var(--panel-white);
+      flex-direction:column; align-items:flex-start; padding:8px 28px 20px;
+      display:none;
+      gap:16px;
+      border-bottom:1px solid var(--rc-line);
+    }
+    nav.open{display:flex;}
+    .nav-toggle{display:block;}
+  }
+
+  /* ---------- Hero (split, AssuriCore-style) ---------- */
+  .hero{
+    background:var(--page-bg);
+    padding:64px 0 80px;
+    background-color: #f4f1ea;
+  }
+  .hero-grid{
+    display:grid; grid-template-columns:1.05fr 0.95fr; gap:40px; align-items:center;
+  }
+  @media (max-width:900px){.hero-grid{grid-template-columns:1fr;}}
+
+  .hero h1{
+    font-size:clamp(2rem, 4vw, 2.9rem);
+    line-height:1.12;
+    margin:16px 0 20px;
+  }
+  .hero p.lede{
+    max-width:50ch;
+    font-size:1.04rem;
+    line-height:1.65;
+    color:#48534c;
+    margin-bottom:30px;
+  }
+  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:13px 24px;
+    border-radius:4px;
+    font-weight:600; font-size:0.9rem;
+    text-decoration:none; cursor:pointer; border:1px solid transparent;
+    transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+  }
+  .btn-primary{background:var(--rc-forest-deep); color:var(--panel-white);}
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 12px 26px -10px rgba(11,61,46,0.4);}
+  .btn-gold{background:var(--rc-gold); color:var(--rc-forest-deep);}
+  .btn-gold:hover{transform:translateY(-2px); box-shadow:0 12px 26px -10px rgba(200,155,60,0.5);}
+  .btn-outline{border-color:var(--rc-line); color:var(--rc-forest-deep); background:var(--panel-white);}
+  .btn-outline:hover{border-color:var(--rc-emerald); color:var(--rc-emerald);}
+
+  .hero-art{
+    position:relative;
+    border-radius:8px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+    aspect-ratio:6/5;
+  }
+  .hero-art svg{width:100%; height:100%; display:block;}
+
+  /* ---------- Section shells ---------- */
+  section{padding:88px 0;}
+  .section-head{max-width:640px; margin-bottom:52px;}
+  .section-head h2{font-size:clamp(1.6rem,3vw,2.2rem); margin:12px 0 14px;}
+  .section-head p{color:#48534c; line-height:1.6; font-size:1rem;}
+
+  /* ---------- Divisions ---------- */
+  .divisions{background:var(--page-bg);}
+  .division-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:24px;
+  }
+  @media (max-width:900px){.division-grid{grid-template-columns:1fr;}}
+
+  .division-card{
+    position:relative;
+    background:var(--panel-white);
+    border:1px solid var(--rc-line);
+    border-radius:6px;
+    padding:32px 24px 28px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+    transition:transform .22s ease;
+  }
+  .division-card:hover{transform:translateY(-4px);}
+  .division-card::before{
+    content:"";
+    position:absolute; top:0; left:0; width:6px; height:100%;
+    background:linear-gradient(to bottom, var(--rc-gold), var(--rc-emerald));
+  }
+  .division-card .code{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:2.3rem; font-weight:500;
+    color:var(--rc-forest);
+    opacity:0.12;
+    line-height:1;
+    margin-bottom:10px;
+  }
+  .division-card h3{font-size:1.24rem; margin-bottom:10px;}
+  .division-card p{color:#4a554e; font-size:0.94rem; line-height:1.6; margin-bottom:16px;}
+  .division-card .tag{
+    display:inline-block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.68rem; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--rc-emerald);
+    border:1px solid rgba(23,105,74,0.3);
+    padding:4px 10px; border-radius:20px;
+  }
+
+  /* ---------- Leaders ---------- */
+  .leaders{background:var(--panel-white);}
+  .leader-grid{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:22px;
+  }
+  @media (max-width:900px){.leader-grid{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:520px){.leader-grid{grid-template-columns:1fr;}}
+
+  .leader-card{
+    background:var(--page-bg);
+    border-radius:6px;
+    padding:26px 20px 22px;
+    text-align:center;
+    border:1px solid var(--rc-line);
+  }
+  .leader-avatar{
+    width:68px; height:68px; border-radius:50%;
+    margin:0 auto 16px;
+    display:flex; align-items:center; justify-content:center;
+    background:linear-gradient(135deg, var(--rc-forest-deep), var(--rc-emerald));
+    color:var(--rc-gold-soft);
+    font-family:'Fraunces', serif; font-weight:600; font-size:1.15rem;
+  }
+  .leader-card h3{font-size:1.02rem; margin-bottom:4px;}
+  .leader-card .role{font-size:0.82rem; color:#5a655e; margin-bottom:10px;}
+  .leader-card .tag{
+    display:inline-block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.64rem; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--rc-emerald);
+    border:1px solid rgba(23,105,74,0.3);
+    padding:3px 9px; border-radius:20px;
+  }
+  .leaders-note{
+    margin-top:36px; font-size:0.84rem; color:#5a655e;
+    border-top:1px dashed var(--rc-line); padding-top:18px;
+  }
+
+  /* ---------- Voices / feedback ---------- */
+  .voices{background:var(--rc-forest-deep); color:var(--panel-white);}
+  .voices-grid{
+    display:grid; grid-template-columns:1fr 1.1fr; gap:56px; align-items:start;
+  }
+  @media (max-width:900px){.voices-grid{grid-template-columns:1fr; gap:44px;}}
+
+  .voices .eyebrow{color:var(--rc-gold-soft);}
+  .voices h2{color:var(--panel-white); font-size:clamp(1.6rem,3vw,2.2rem); margin:12px 0 18px;}
+  .voices p.lede{color:rgba(255,255,255,0.75); line-height:1.65; max-width:44ch; margin-bottom:28px;}
+
+  .voices ul.points{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:16px;}
+  .voices ul.points li{
+    display:flex; gap:12px; align-items:flex-start;
+    font-size:0.94rem; color:rgba(255,255,255,0.82); line-height:1.5;
+  }
+  .voices ul.points li .dot{
+    width:8px;height:8px;border-radius:50%;background:var(--rc-gold);
+    margin-top:6px; flex-shrink:0;
+  }
+
+  form.share-form{
+    background:var(--page-bg);
+    color:var(--rc-ink);
+    border-radius:6px;
+    padding:30px;
+    box-shadow:var(--shadow);
+  }
+  .type-toggle{display:flex; gap:8px; margin-bottom:20px;}
+  .type-toggle button{
+    flex:1;
+    padding:10px 14px;
+    border-radius:4px;
+    border:1px solid var(--rc-line);
+    background:var(--panel-white);
+    font-family:'Work Sans', sans-serif;
+    font-weight:600; font-size:0.86rem;
+    color:var(--rc-forest);
+    cursor:pointer;
+    transition:background .18s ease, color .18s ease, border-color .18s ease;
+  }
+  .type-toggle button[aria-pressed="true"]{
+    background:var(--rc-forest-deep); color:var(--panel-white); border-color:var(--rc-forest-deep);
+  }
+
+  .field{margin-bottom:16px;}
+  .field label{
+    display:block; font-size:0.82rem; font-weight:600;
+    margin-bottom:6px; color:var(--rc-forest-deep);
+  }
+  .field-row{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  @media (max-width:520px){.field-row{grid-template-columns:1fr;}}
+
+  input[type="text"], input[type="email"], select, textarea{
+    width:100%;
+    padding:11px 13px;
+    border:1px solid var(--rc-line);
+    border-radius:4px;
+    font-family:'Work Sans', sans-serif;
+    font-size:0.94rem;
+    background:var(--panel-white);
+    color:var(--rc-ink);
+  }
+  textarea{resize:vertical; min-height:100px;}
+  input:focus-visible, select:focus-visible, textarea:focus-visible, button:focus-visible, a:focus-visible{
+    outline:2px solid var(--rc-gold); outline-offset:2px;
+  }
+
+  .submit-row{display:flex; align-items:center; gap:16px; margin-top:6px;}
+  .submit-row .btn-primary{border:none; cursor:pointer;}
+  .form-note{font-size:0.78rem; color:#5a655e;}
+
+  .success-msg{
+    display:none;
+    margin-top:16px;
+    padding:14px 16px;
+    border-radius:4px;
+    background:rgba(23,105,74,0.12);
+    border:1px solid rgba(23,105,74,0.35);
+    color:var(--rc-forest-deep);
+    font-size:0.9rem;
+  }
+  .success-msg.show{display:block;}
+
+  /* ---------- Footer ---------- */
+  footer{
+    background:var(--rc-forest-deep);
+    border-top:1px solid rgba(255,255,255,0.08);
+    color:rgba(255,255,255,0.65);
+    padding:32px 0;
+    font-size:0.85rem;
+  }
+  .footer-inner{
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;
+  }
+  footer a{color:var(--rc-gold-soft); text-decoration:none;}
+</style>
+</head>
+<body>
+
+<div class="side-banner" aria-hidden="true">
+  <img src="./image.png" alt="">
+</div>
+
+<header>
+  <div class="header-inner">
+    <div class="brand-logo">
+      <img src="./image3.png"
+           alt="Renaissance Africa Energy Company"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+      <span class="fallback-word">Renaissance</span>
+      <div class="coe-tag">
+        <div class="line1">Center of Excellence</div>
+        <div class="line2">ORS &middot; PMF &middot; DCARP</div>
+      </div>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu" onclick="document.getElementById('mainNav').classList.toggle('open')">&#9776;</button>
+    <nav id="mainNav">
+      <a href="#divisions">Divisions</a>
+      <a href="#leaders">Meet Our Leaders</a>
+      <a href="#voices">Share Your Voice</a>
+      <a href="#leaders" class="btn-leadership">Leadership</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Renaissance &nbsp;/&nbsp; Center of Excellence</div>
+      <h1>Where ORS, PMF and DCARP raise the standard together.</h1>
+      <p class="lede">One home for three disciplines driving performance across Renaissance. Explore what each division stands for, meet the leaders behind them, and tell us what excellence should look like next.</p>
+      <div class="hero-ctas">
+        <a href="#voices" class="btn btn-gold">Share Feedback</a>
+        <a href="#leaders" class="btn btn-primary">Meet Our Leaders</a>
+        <a href="#divisions" class="btn btn-outline">Explore the Divisions</a>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 700 580" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#0B3D2E"/>
+            <stop offset="55%" stop-color="#17694A"/>
+            <stop offset="100%" stop-color="#C89B3C"/>
+          </linearGradient>
+          <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#082A20"/>
+            <stop offset="100%" stop-color="#051B15"/>
+          </linearGradient>
+        </defs>
+        <rect x="0" y="0" width="700" height="580" fill="url(#sky)"/>
+        <circle cx="510" cy="230" r="78" fill="#E7CD8F" opacity="0.9"/>
+        <circle cx="510" cy="230" r="78" fill="none" stroke="#F6F3EC" stroke-width="1" opacity="0.4"/>
+        <!-- distant ring / assurance motif -->
+        <circle cx="510" cy="230" r="118" fill="none" stroke="#F6F3EC" stroke-width="1" opacity="0.25"/>
+        <circle cx="510" cy="230" r="150" fill="none" stroke="#F6F3EC" stroke-width="1" opacity="0.15"/>
+
+        <!-- ground -->
+        <path d="M0 430 L120 400 L230 425 L340 395 L460 420 L560 400 L700 415 L700 580 L0 580 Z" fill="url(#ground)"/>
+
+        <!-- pipeline -->
+        <path d="M0 470 L700 470" stroke="#0F4A37" stroke-width="18"/>
+        <path d="M0 470 L700 470" stroke="#E7CD8F" stroke-width="2" stroke-dasharray="10 14" opacity="0.8">
+          <animate attributeName="stroke-dashoffset" from="0" to="-48" dur="3.2s" repeatCount="indefinite"/>
+        </path>
+
+        <!-- rig tower -->
+        <g stroke="#F6F3EC" stroke-width="3" fill="none" stroke-linejoin="round">
+          <path d="M300 430 L340 190 L380 430"/>
+          <path d="M310 400 L370 400"/>
+          <path d="M317 360 L363 360"/>
+          <path d="M324 320 L356 320"/>
+          <path d="M330 280 L350 280"/>
+          <path d="M310 400 L340 190"/>
+          <path d="M370 400 L340 190"/>
+        </g>
+        <rect x="332" y="170" width="16" height="20" fill="#C89B3C"/>
+        <circle cx="340" cy="168" r="5" fill="#F6F3EC">
+          <animate attributeName="opacity" values="1;0.3;1" dur="1.6s" repeatCount="indefinite"/>
+        </circle>
+
+        <!-- secondary small derrick -->
+        <g stroke="#F6F3EC" stroke-width="2" fill="none" opacity="0.55">
+          <path d="M120 430 L140 340 L160 430"/>
+          <path d="M126 400 L154 400"/>
+          <path d="M132 370 L148 370"/>
+        </g>
+
+        <!-- storage tanks -->
+        <g fill="#0F4A37" stroke="#F6F3EC" stroke-width="1.5" opacity="0.9">
+          <rect x="470" y="390" width="46" height="40" rx="3"/>
+          <rect x="524" y="400" width="36" height="30" rx="3"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="divisions wrap" id="divisions">
+  <div class="section-head">
+    <div class="eyebrow">Our Divisions</div>
+    <h2>Three disciplines, one standard of excellence</h2>
+    <p>Each division brings a distinct capability to the Center of Excellence. Replace this placeholder copy with each division's actual mandate.</p>
+  </div>
+  <div class="division-grid">
+    <article class="division-card">
+      <div class="code">ORS</div>
+      <h3>Operations &amp; Reliability Services</h3>
+      <p>Sets and safeguards the operating standards that keep Renaissance running safely, reliably, and efficiently.</p>
+      <span class="tag">Division 01</span>
+    </article>
+    <article class="division-card">
+      <div class="code">PMF</div>
+      <h3>Project Management Framework</h3>
+      <p>Provides the shared methodology, governance, and tools that keep projects on scope, on time, and on budget.</p>
+      <span class="tag">Division 02</span>
+    </article>
+    <article class="division-card">
+      <div class="code">DCARP</div>
+      <h3>Data, Compliance &amp; Risk Practice</h3>
+      <p>Champions the data, controls, and risk practices that keep decisions sound and Renaissance accountable.</p>
+      <span class="tag">Division 03</span>
+    </article>
+  </div>
+</section>
+
+<section class="leaders" id="leaders">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Leadership</div>
+      <h2>Meet our leaders</h2>
+      <p>The people guiding ORS, PMF, and DCARP toward one shared standard. Swap in real names, titles, and headshots when ready.</p>
+    </div>
+    <div class="leader-grid">
+      <div class="leader-card">
+        <div class="leader-avatar">CE</div>
+        <h3>Full Name</h3>
+        <div class="role">Head, Center of Excellence</div>
+        <span class="tag">General</span>
+      </div>
+      <div class="leader-card">
+        <div class="leader-avatar">OR</div>
+        <h3>Full Name</h3>
+        <div class="role">Lead, Operations &amp; Reliability Services</div>
+        <span class="tag">ORS</span>
+      </div>
+      <div class="leader-card">
+        <div class="leader-avatar">PM</div>
+        <h3>Full Name</h3>
+        <div class="role">Lead, Project Management Framework</div>
+        <span class="tag">PMF</span>
+      </div>
+      <div class="leader-card">
+        <div class="leader-avatar">DC</div>
+        <h3>Full Name</h3>
+        <div class="role">Lead, Data, Compliance &amp; Risk Practice</div>
+        <span class="tag">DCARP</span>
+      </div>
+    </div>
+  
+  </div>
+</section>
+
+<section class="voices" id="voices">
+  <div class="wrap voices-grid">
+    <div>
+      <div class="eyebrow">Your Voice</div>
+      <h2>Share an experience or leave feedback</h2>
+      <p class="lede">The Center of Excellence gets stronger every time someone tells us what worked, what didn't, or what we should try next. Two minutes is all it takes.</p>
+      <ul class="points">
+        <li><span class="dot"></span>Tell us about a project, process, or moment involving ORS, PMF, or DCARP.</li>
+        <li><span class="dot"></span>Suggest an improvement, tool, or standard you'd like to see adopted.</li>
+        <li><span class="dot"></span>Flag a challenge early so the right division can act on it.</li>
+      </ul>
+    </div>
+
+    <form class="share-form" id="shareForm" onsubmit="return handleSubmit(event)">
+      <div class="type-toggle" role="group" aria-label="Choose submission type">
+        <button type="button" id="btnExperience" aria-pressed="true" onclick="setType('experience')">Share an Experience</button>
+        <button type="button" id="btnFeedback" aria-pressed="false" onclick="setType('feedback')">Give Feedback</button>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="fullName">Full name</label>
+          <input type="text" id="fullName" name="fullName" required placeholder="Jane Doe">
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required placeholder="jane.doe@renaissanceafrica.com">
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="division">Related division</label>
+        <select id="division" name="division" required>
+          <option value="" disabled selected>Select a division</option>
+          <option value="ORS">ORS — Operations &amp; Reliability Services</option>
+          <option value="PMF">PMF — Project Management Framework</option>
+          <option value="DCARP">DCARP — Data, Compliance &amp; Risk Practice</option>
+          <option value="General">General / Center of Excellence</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="message" id="messageLabel">Tell us what happened</label>
+        <textarea id="message" name="message" required placeholder="Share as much detail as helps us understand the context..."></textarea>
+      </div>
+
+      <div class="submit-row">
+        <button type="submit" class="btn btn-gold">Submit</button>
+        <span class="form-note">Submissions route to the Center of Excellence team.</span>
+      </div>
+
+      <div class="success-msg" id="successMsg" role="status">
+        Thank you — your submission has been received. A member of the Center of Excellence team will follow up if needed.
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-inner">
+    <span>&copy; 2026 Renaissance Africa Energy Company Limited — Center of Excellence</span>
+    <a href="https://renaissanceafrica.com/" target="_blank" rel="noopener">renaissanceafrica.com</a>
+  </div>
+</footer>
+
+<script>
+  let currentType = 'experience';
+  function setType(type){
+    currentType = type;
+    document.getElementById('btnExperience').setAttribute('aria-pressed', type === 'experience');
+    document.getElementById('btnFeedback').setAttribute('aria-pressed', type === 'feedback');
+    document.getElementById('messageLabel').textContent =
+      type === 'experience' ? 'Tell us what happened' : 'What should we improve?';
+    document.getElementById('message').placeholder =
+      type === 'experience'
+        ? "Share as much detail as helps us understand the context..."
+        : "Share your suggestion or the issue you'd like addressed...";
+  }
+
+  function handleSubmit(e){
+    e.preventDefault();
+    // Placeholder handler: no backend is connected yet.
+    // Wire this up to your form endpoint, email service, or API of choice.
+    const successMsg = document.getElementById('successMsg');
+    successMsg.classList.add('show');
+    document.getElementById('shareForm').reset();
+    setType(currentType);
+    successMsg.scrollIntoView({behavior:'smooth', block:'nearest'});
+    return false;
+  }
+</script>
+
+</body>
+</html>
