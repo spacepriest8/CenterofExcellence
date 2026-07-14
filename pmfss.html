@@ -3,21 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Center of Excellence | Renaissance Africa Energy</title>
+<title>PMF | Center of Excellence | Renaissance Africa Energy</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
+<style>
   :root{
-    --rc-forest:#0B3D2E;
-    --rc-forest-deep:#082A20;
-    --rc-emerald:#17694A;
-    --rc-gold:#C89B3C;
+    --rc-forest:#fbfdfc;
+    --rc-forest-deep:#f8f8f8;
+    --rc-emerald:#f7fffc;
+    --rc-gold:#edebe7;
     --rc-gold-soft:#E7CD8F;
     --page-bg:#EEF1F0;
     --panel-white:#FFFFFF;
     --rc-ink:#172018;
     --rc-line: rgba(11,61,46,0.12);
     --shadow: 0 16px 40px -18px rgba(11,61,46,0.28);
+    --bg-intensity: 0.3;
   }
 
   *{box-sizing:border-box;}
@@ -28,6 +30,24 @@
     color:var(--rc-ink);
     font-family:'Work Sans', sans-serif;
     -webkit-font-smoothing:antialiased;
+    padding-left:64px;
+    background-image: url('./image4.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+  }
+  body::before{
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--page-bg);
+    opacity: 0.1;
+    pointer-events: none;
+    z-index: 1;
   }
   h1,h2,h3,.display{
     font-family:'Fraunces', serif;
@@ -74,7 +94,7 @@
 
   /* ---------- Section backgrounds using the side banner image ---------- */
   .side-bg{
-    background-image: url('./image.png');
+    background-image: url('./image4.jpg');
     background-repeat: no-repeat;
     background-position: left center;
     background-size: 64px 100%; /* match the fixed banner width and stretch vertically */
@@ -506,6 +526,7 @@
   }
   footer a{color:var(--rc-gold-soft); text-decoration:none;}
 </style>
+</style>
 </head>
 <body>
 
@@ -527,247 +548,164 @@
     </div>
     <button class="nav-toggle" aria-label="Toggle menu" onclick="document.getElementById('mainNav').classList.toggle('open')">&#9776;</button>
     <nav id="mainNav">
-      <a href="#divisions">Divisions</a>
-      <a href="pmf.html">PMF</a>
-      <a href="#leaders">Meet Our Leaders</a>
-      <a href="#voices">Share Your Voice</a>
-      <a href="#leaders" class="btn-leadership">Leadership</a>
+      <a href="index.html">Home</a>
+      <a href="index.html#divisions">Divisions</a>
+      <a href="pmf.html" style="color:var(--rc-emerald);">PMF</a>
+      <a href="index.html#leaders">Meet Our Leaders</a>
+      <a href="index.html#voices">Share Your Voice</a>
+      <a href="index.html#leaders" class="btn-leadership">Leadership</a>
     </nav>
   </div>
 </header>
 
-<section class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <div class="eyebrow">Renaissance &nbsp;/&nbsp; Center of Excellence</div>
-      <h1>Where ORS, PMF and DCAF raise the standard together.</h1>
-      <p class="lede">One home for standards and framework driving perfomance across Renaissance Project and Engineering. Explore what each division stands for, meet the leaders behind them, and tell us what excellence should look like next.</p>
-      <div class="hero-ctas">
-        <a href="#voices" class="btn btn-gold">Share Feedback</a>
-        <a href="#leaders" class="btn btn-primary">Meet Our Leaders</a>
-        <a href="#divisions" class="btn btn-outline">Explore the Divisions</a>
-      </div>
-    </div>
-    <div class="hero-art" aria-hidden="true">
-      <svg viewBox="0 0 700 580" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#0B3D2E"/>
-            <stop offset="55%" stop-color="#17694A"/>
-            <stop offset="100%" stop-color="#C89B3C"/>
-          </linearGradient>
-          <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#082A20"/>
-            <stop offset="100%" stop-color="#051B15"/>
-          </linearGradient>
-        </defs>
-        <rect x="0" y="0" width="700" height="580" fill="url(#sky)"/>
-        <circle cx="510" cy="230" r="78" fill="#E7CD8F" opacity="0.9"/>
-        <circle cx="510" cy="230" r="78" fill="none" stroke="#F6F3EC" stroke-width="1" opacity="0.4"/>
-        <!-- distant ring / assurance motif -->
-        <circle cx="510" cy="230" r="118" fill="none" stroke="#F6F3EC" stroke-width="1" opacity="0.25"/>
-        <circle cx="510" cy="230" r="150" fill="none" stroke="#F6F3EC" stroke-width="1" opacity="0.15"/>
-
-        <!-- ground -->
-        <path d="M0 430 L120 400 L230 425 L340 395 L460 420 L560 400 L700 415 L700 580 L0 580 Z" fill="url(#ground)"/>
-
-        <!-- pipeline -->
-        <path d="M0 470 L700 470" stroke="#0F4A37" stroke-width="18"/>
-        <path d="M0 470 L700 470" stroke="#E7CD8F" stroke-width="2" stroke-dasharray="10 14" opacity="0.8">
-          <animate attributeName="stroke-dashoffset" from="0" to="-48" dur="3.2s" repeatCount="indefinite"/>
-        </path>
-
-        <!-- rig tower -->
-        <g stroke="#F6F3EC" stroke-width="3" fill="none" stroke-linejoin="round">
-          <path d="M300 430 L340 190 L380 430"/>
-          <path d="M310 400 L370 400"/>
-          <path d="M317 360 L363 360"/>
-          <path d="M324 320 L356 320"/>
-          <path d="M330 280 L350 280"/>
-          <path d="M310 400 L340 190"/>
-          <path d="M370 400 L340 190"/>
+<section class="pmf-spotlight wrap" id="pmf">
+  <div class="pmf-banner">
+    <div class="pmf-banner-art" aria-hidden="true">
+      <svg viewBox="0 0 900 420" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0" y="0" width="900" height="420" fill="#C89B3C"/>
+        <rect x="0" y="230" width="900" height="190" fill="#B8862A"/>
+        <!-- faint industrial skyline -->
+        <g fill="#E7CD8F" opacity="0.55">
+          <rect x="600" y="140" width="10" height="120"/>
+          <rect x="618" y="110" width="10" height="150"/>
+          <rect x="636" y="160" width="10" height="100"/>
+          <path d="M660 260 L660 150 L700 120 L740 150 L740 260 Z"/>
+          <rect x="760" y="180" width="60" height="8"/>
+          <rect x="780" y="120" width="8" height="70"/>
+          <circle cx="720" cy="105" r="6"/>
         </g>
-        <rect x="332" y="170" width="16" height="20" fill="#C89B3C"/>
-        <circle cx="340" cy="168" r="5" fill="#F6F3EC">
-          <animate attributeName="opacity" values="1;0.3;1" dur="1.6s" repeatCount="indefinite"/>
-        </circle>
-
-        <!-- secondary small derrick -->
-        <g stroke="#F6F3EC" stroke-width="2" fill="none" opacity="0.55">
-          <path d="M120 430 L140 340 L160 430"/>
-          <path d="M126 400 L154 400"/>
-          <path d="M132 370 L148 370"/>
+        <!-- seated group silhouettes around a table -->
+        <g fill="#FBF6E8">
+          <path d="M330 300 q10 -46 46 -46 q36 0 46 46 l0 60 l-92 0 Z"/>
+          <circle cx="376" cy="238" r="19"/>
+          <path d="M470 310 q8 -50 50 -50 q42 0 50 50 l0 55 l-100 0 Z"/>
+          <circle cx="520" cy="244" r="20"/>
+          <path d="M600 300 q10 -46 46 -46 q36 0 46 46 l0 60 l-92 0 Z"/>
+          <circle cx="646" cy="238" r="19"/>
+          <path d="M230 312 q8 -44 44 -44 q34 0 44 44 l0 52 l-88 0 Z"/>
+          <circle cx="274" cy="252" r="18"/>
         </g>
-
-        <!-- storage tanks -->
-        <g fill="#0F4A37" stroke="#F6F3EC" stroke-width="1.5" opacity="0.9">
-          <rect x="470" y="390" width="46" height="40" rx="3"/>
-          <rect x="524" y="400" width="36" height="30" rx="3"/>
-        </g>
+        <!-- table -->
+        <rect x="250" y="360" width="430" height="14" fill="#8A6522" opacity="0.85"/>
       </svg>
     </div>
-  </div>
-</section>
-
-<section class="divisions wrap" id="divisions">
-  <div class="section-head">
-    <div class="eyebrow">Our Divisions</div>
-    <h2>Three disciplines, one standard of excellence</h2>
-    <p>Each division brings a distinct capability to the Center of Excellence.</p>
-  </div>
-  <div class="division-grid">
-    <article class="division-card">
-      <div class="code">ORS</div>
-      <h3>Opportunity &amp; Reliazation standards</h3>
-      <p>Sets and safeguards the operating standards that keep Renaissance running safely, reliably, and efficiently.</p>
-      <span class="tag">Division 01</span>
-    </article>
-    <article class="division-card">
-      <div class="code">PMF</div>
-      <h3>Project Management Framework</h3>
-      <p>Provides the shared methodology, governance, and tools that keep projects on scope, on time, and on budget.</p>
-      <span class="tag">Division 02</span>
-      <div style="margin-top:14px;">
-        <a href="pmf.html" style="font-size:0.86rem; font-weight:600; color:var(--rc-emerald); text-decoration:none;">View PMF details &rarr;</a>
-      </div>
-    </article>
-    <article class="division-card">
-      <div class="code">DCAF</div>
-      <h3>Displine, Control &amp; Assurance Framework</h3>
-      <p>Champions the data, controls, and risk practices that keep decisions sound and Renaissance accountable.</p>
-      <span class="tag">Division 03</span>
-    </article>
-  </div>
-</section>
-
-<section class="leaders" id="leaders">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow">Leadership</div>
-      <h2>Meet our leaders</h2>
-      <p>The people guiding ORS, PMF, and DCARP toward one shared standard.</p>
-    </div>
-    <div class="leader-grid">
-      <div class="leader-card">
-        <div class="leader-avatar">CE</div>
-        <h3>Full Name</h3>
-        <div class="role">Head, Center of Excellence</div>
-        <span class="tag">General</span>
-      </div>
-      <div class="leader-card">
-        <div class="leader-avatar">OR</div>
-        <h3>Full Name</h3>
-        <div class="role">Lead, Operations &amp; Reliability Services</div>
-        <span class="tag">ORS</span>
-      </div>
-      <div class="leader-card">
-        <div class="leader-avatar">PM</div>
-        <h3>Full Name</h3>
-        <div class="role">Lead, Project Management Framework</div>
-        <span class="tag">PMF</span>
-      </div>
-      <div class="leader-card">
-        <div class="leader-avatar">DC</div>
-        <h3>Full Name</h3>
-        <div class="role">Lead, Data, Compliance &amp; Risk Practice</div>
-        <span class="tag">DCARP</span>
+    <div class="pmf-banner-content">
+      <div class="eyebrow">PMF &nbsp;/&nbsp; Project Management Framework</div>
+      <h3>Welcome to the PMF</h3>
+      <p>Hosting the shared methodology, standards, and controls that keep every Renaissance project on scope, on time, and on budget.</p>
+      <a href="#pmf-library" class="btn">Open the Library</a>
+      <div class="pmf-tabs">
+        <a href="#pmf">Home</a>
+        <a href="#pmf-library">How To Apply The PMF</a>
+        <a href="#pmf-controls">Project Standards</a>
+        <a href="#pmf-controls">Practice Maps</a>
       </div>
     </div>
-  
   </div>
-</section>
 
-<section class="voices" id="voices">
-  <div class="wrap voices-grid">
-    <div>
-      <div class="eyebrow">Your Voice</div>
-      <h2>Share an experience or leave feedback</h2>
-      <p class="lede">The Center of Excellence gets stronger every time someone tells us what worked, what didn't, or what we should try next. Two minutes is all it takes.</p>
-      <ul class="points">
-        <li><span class="dot"></span>Tell us about a project, process, or moment involving ORS, PMF, or DCARP.</li>
-        <li><span class="dot"></span>Suggest an improvement, tool, or standard you'd like to see adopted.</li>
-        <li><span class="dot"></span>Flag a challenge early so the right division can act on it.</li>
-      </ul>
+  <div class="pmf-sub" id="pmf-library">
+    <div class="pmf-sub-head">
+      <div class="eyebrow">PMF Library</div>
+      <h3>One library for guides, templates, and tools</h3>
+      <div class="rainbow-bar"></div>
+      <p>Every PMF document lives in one library, organized so teams can find the right guide, template, or tool without hunting across folders.</p>
     </div>
-
-    <form class="share-form" id="shareForm" onsubmit="return handleSubmit(event)">
-      <div class="type-toggle" role="group" aria-label="Choose submission type">
-        <button type="button" id="btnExperience" aria-pressed="true" onclick="setType('experience')">Share an Experience</button>
-        <button type="button" id="btnFeedback" aria-pressed="false" onclick="setType('feedback')">Give Feedback</button>
+    <div class="library-grid">
+      <div class="library-flow">
+        <div class="flow-step primary">Library</div>
+        <div class="flow-arrow">&#8595;</div>
+        <div class="flow-step">Guides</div>
+        <div class="flow-step">Templates</div>
+        <div class="flow-step">Tools</div>
       </div>
-
-      <div class="field-row">
-        <div class="field">
-          <label for="fullName">Full name</label>
-          <input type="text" id="fullName" name="fullName" required placeholder="Jane Doe">
+      <div class="library-doc-card">
+        <div class="doc-art" aria-hidden="true">
+          <svg viewBox="0 0 300 320" xmlns="http://www.w3.org/2000/svg">
+            <rect width="300" height="320" fill="#C89B3C"/>
+            <rect y="210" width="300" height="110" fill="#B8862A"/>
+            <g fill="#FBF6E8">
+              <path d="M110 260 q8 -40 38 -40 q30 0 38 40 l0 50 l-76 0 Z"/>
+              <circle cx="148" cy="207" r="16"/>
+              <path d="M190 264 q7 -36 34 -36 q27 0 34 36 l0 46 l-68 0 Z"/>
+              <circle cx="224" cy="215" r="15"/>
+              <path d="M60 266 q6 -32 30 -32 q24 0 30 32 l0 44 l-60 0 Z"/>
+              <circle cx="90" cy="222" r="13"/>
+            </g>
+          </svg>
         </div>
-        <div class="field">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required placeholder="jane.doe@renaissanceafrica.com">
+        <div class="doc-label">
+          <div class="doc-eyebrow">PMF Library Document</div>
+          <h4>Framework Overview</h4>
+          <div class="doc-sub">Renaissance Center of Excellence</div>
         </div>
       </div>
-
-      <div class="field">
-        <label for="division">Related division</label>
-        <select id="division" name="division" required>
-          <option value="" disabled selected>Select a division</option>
-          <option value="ORS">ORS — Opportunity &amp; Reliazation standards</option>
-          <option value="PMF">PMF — Project Management Framework</option>
-          <option value="DCAF">DCAF — Displine, Control &amp; Assurance Framework</option>
-          <option value="General">General / Center of Excellence</option>
-        </select>
+      <div class="toc-list">
+        <h4>Typical Table of Contents</h4>
+        <ol>
+          <li>Introduction — what and why</li>
+          <li>Core content — how, when, who</li>
+          <li>Abbreviations and terminology</li>
+          <li>Appendix</li>
+        </ol>
       </div>
+    </div>
+  </div>
 
-      <div class="field">
-        <label for="message" id="messageLabel">Tell us what happened</label>
-        <textarea id="message" name="message" required placeholder="Share as much detail as helps us understand the context..."></textarea>
+  <div class="pmf-sub" id="pmf-controls">
+    <div class="pmf-sub-head">
+      <div class="eyebrow">Project Standards</div>
+      <h3>A typical project standard's control</h3>
+      <div class="rainbow-bar"></div>
+      <p>Sample layout only — replace the fields below with the division's real control content once available.</p>
+    </div>
+    <div class="control-panel">
+      <div class="control-desc">
+        <div class="desc-row"><strong>Title &amp; number</strong>Names the control and the project phase it applies to.</div>
+        <div class="desc-row"><strong>Context — the "why"</strong>Describes the risk the control addresses and why it exists.</div>
+        <div class="desc-row"><strong>Activity — the "what"</strong>Describes the activity required to satisfy the control.</div>
+        <div class="desc-row"><strong>Purpose</strong>Explains what the activity is meant to achieve.</div>
+        <div class="desc-row"><strong>Mandatory deliverable</strong>Where the evidence that the control was met gets recorded.</div>
       </div>
-
-      <div class="submit-row">
-        <button type="submit" class="btn btn-gold">Submit</button>
-        <span class="form-note">Submissions route to the Center of Excellence team.</span>
+      <div class="control-detail">
+        <div class="control-title">CONTROL: 1.S.1 SAMPLE STANDARD CONTROL</div>
+        <div class="rainbow-bar"></div>
+        <div class="control-field">
+          <div class="field-label">Context</div>
+          <div class="field-value">Placeholder context — describe the risk this control manages and why it matters at this project phase.</div>
+        </div>
+        <div class="control-field">
+          <div class="field-label">Activity</div>
+          <div class="field-value">Placeholder activity — describe the action the project team must complete.</div>
+        </div>
+        <div class="control-field">
+          <div class="field-label">Purpose</div>
+          <div class="field-value">Placeholder purpose — explain what completing the activity achieves.</div>
+        </div>
+        <div class="control-field">
+          <div class="field-label">Evidence recorded in</div>
+          <div class="field-value">Placeholder deliverable name</div>
+        </div>
+        <div class="control-field">
+          <div class="field-label">Accountability</div>
+          <div class="field-value">Placeholder role</div>
+        </div>
+        <div class="control-field">
+          <div class="field-label">Phase</div>
+          <div class="field-value">Placeholder phase</div>
+        </div>
       </div>
-
-      <div class="success-msg" id="successMsg" role="status">
-        Thank you — your submission has been received. A member of the Center of Excellence team will follow up if needed.
-      </div>
-    </form>
+    </div>
   </div>
 </section>
 
 <footer>
   <div class="wrap footer-inner">
     <span>&copy; 2026 Renaissance Africa Energy Company Limited — Center of Excellence</span>
-    <a href="https://renaissanceafrica.com/" target="_blank" rel="noopener">renaissanceafrica.com</a>
+    <a href="index.html">&larr; Back to Center of Excellence Home</a>
   </div>
 </footer>
 
-<script>
-  let currentType = 'experience';
-  function setType(type){
-    currentType = type;
-    document.getElementById('btnExperience').setAttribute('aria-pressed', type === 'experience');
-    document.getElementById('btnFeedback').setAttribute('aria-pressed', type === 'feedback');
-    document.getElementById('messageLabel').textContent =
-      type === 'experience' ? 'Tell us what happened' : 'What should we improve?';
-    document.getElementById('message').placeholder =
-      type === 'experience'
-        ? "Share as much detail as helps us understand the context..."
-        : "Share your suggestion or the issue you'd like addressed...";
-  }
 
-  function handleSubmit(e){
-    e.preventDefault();
-    // Placeholder handler: no backend is connected yet.
-    // Wire this up to your form endpoint, email service, or API of choice.
-    const successMsg = document.getElementById('successMsg');
-    successMsg.classList.add('show');
-    document.getElementById('shareForm').reset();
-    setType(currentType);
-    successMsg.scrollIntoView({behavior:'smooth', block:'nearest'});
-    return false;
-  }
-</script>
 
 </body>
 </html>
