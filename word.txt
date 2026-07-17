@@ -1,0 +1,1 @@
+so what i shared is like workflow when you click the how to apply the PMF it will open the text document with the description and the tables,but here is the catch you have to hyperlink the Nos lets say 0.D.6 then it will then take you to where that text that describes that...it should be dynamic and free flow between the webpages ..if you think i can

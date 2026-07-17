@@ -251,7 +251,28 @@
     width:64px; height:4px; border-radius:2px; margin:14px 0 0;
     background:linear-gradient(90deg, #E4572E, #F2A93B, #F4D35E, #8BC34A, #3F8F5C);
   }
-  .pmf-spotlight{background:var(--panel-white); padding-top:0; padding-bottom:88px; position:relative;}
+  .pmf-spotlight{
+    background:var(--panel-white); 
+    padding-top:0; 
+    padding-bottom:88px; 
+    position:relative;
+    background-image: url('./image4.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+  .pmf-spotlight::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--page-bg);
+    opacity: 0.45;
+    pointer-events: none;
+    z-index: 0;
+  }
 
   /* Fixed full-viewport background photo + readability overlay.
      These sit behind everything (z-index:0). Opacity is user-adjustable
@@ -590,8 +611,8 @@
       <div class="pmf-tabs">
         <a href="#pmf">Home</a>
         <a href="#pmf-library">How To Apply The PMF</a>
-        <a href="pmf-standards.html">Project Standards</a>
-        <a href="pmf-standards.html">Practice Maps</a>
+        <a href="#pmf-controls">Project Standards</a>
+        <a href="#pmf-controls">Practice Maps</a>
       </div>
     </div>
   </div>
@@ -650,7 +671,7 @@
       <div class="eyebrow">Project Standards</div>
       <h3>A typical project standard's control</h3>
       <div class="rainbow-bar"></div>
-      <p>Every control follows the same anatomy below. Click the control number to see it live on its own dynamic detail page, or browse the full list.</p>
+      <p>Sample layout only — replace the fields below with the division's real control content once available.</p>
     </div>
     <div class="control-panel">
       <div class="control-desc">
@@ -661,7 +682,7 @@
         <div class="desc-row"><strong>Mandatory deliverable</strong>Where the evidence that the control was met gets recorded.</div>
       </div>
       <div class="control-detail">
-        <div class="control-title">CONTROL: <a href="pmf-control.html?id=1.S.1" style="color:var(--rc-emerald); text-decoration:none; border-bottom:1px dashed var(--rc-emerald);">1.S.1</a> SAMPLE STANDARD CONTROL</div>
+        <div class="control-title">CONTROL: 1.S.1 SAMPLE STANDARD CONTROL</div>
         <div class="rainbow-bar"></div>
         <div class="control-field">
           <div class="field-label">Context</div>
@@ -688,9 +709,6 @@
           <div class="field-value">Placeholder phase</div>
         </div>
       </div>
-    </div>
-    <div style="margin-top:24px;">
-      <a href="pmf-standards.html" class="btn btn-primary">Browse All Project Standards &rarr;</a>
     </div>
   </div>
   </div>
